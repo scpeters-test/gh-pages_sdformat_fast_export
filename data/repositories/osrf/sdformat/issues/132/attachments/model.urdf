@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<robot name="soccer_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  
+  <link name="chassis">
+    <collision name="collision">
+      <origin rpy="0 0 0" xyz="0 0 0.0825"/>
+      <geometry>
+        <box size="1 1 1" />
+      </geometry>
+    </collision>
+    <visual name="visual">
+      <origin rpy="0 0 0" xyz="0 0 0.0825"/>
+      <geometry>
+        <box size="1 1 1" />
+      </geometry>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0.045"/>
+      <mass value="0.8"/>
+      <inertia ixx="0.003305" ixy="0.0" ixz="0.0" iyy="0.003305" iyz="0.0" izz="0.00361"/>
+    </inertial>
+  </link>
+
+  <gazebo reference="chassis">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+</robot>
+

@@ -1,0 +1,1 @@
+{"pagelen": 100, "values": [{"type": "issue_attachment", "name": "singleFixed.urdf", "links": {"self": {"href": ["data/repositories/osrf/sdformat/issues/105/attachments/singleFixed.urdf"]}}}, {"type": "issue_attachment", "name": "doubleFixed.urdf", "links": {"self": {"href": ["data/repositories/osrf/sdformat/issues/105/attachments/doubleFixed.urdf"]}}}], "page": 1, "size": 2}

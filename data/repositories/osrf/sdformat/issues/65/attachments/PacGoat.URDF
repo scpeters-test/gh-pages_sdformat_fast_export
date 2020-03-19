@@ -1,0 +1,1864 @@
+<robot
+    name="PacGoat">
+  <link name="Chassis">
+    <inertial>
+      <origin
+          xyz="0.287684581833743 0.00615089211734748 0.133253046894635"
+          rpy="0 0 0" />
+      <mass
+          value="19.54940677096" />
+      <inertia
+          ixx="1.04845578182728"
+          ixy="0.0163257377191805"
+          ixz="-0.0301359786166002"
+          iyy="1.17793569340638"
+          iyz="-0.0832407681877232"
+          izz="0.649047441867454" />
+    </inertial>
+    <visual name="Chassis_visual">
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Chassis.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="0.894117647058823 0.913725490196078 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Chassis_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="Wheel_A">
+    <inertial>
+      <origin
+          xyz="-0.00278179286929262 1.29409619131771E-08 -1.64749404674147E-08"
+          rpy="0 0 0" />
+      <mass
+          value="0.125505035123467" />
+      <inertia
+          ixx="0.000186758243148487"
+          ixy="6.31676122728051E-12"
+          ixz="2.41584091797708E-12"
+          iyy="0.000104233633342843"
+          iyz="2.84984418740452E-12"
+          izz="0.000104233696136021" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_A.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_A_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Wheel_A_cont" type="continuous">
+    <origin
+        xyz="0.039929 -0.0381 -0.33338"
+        rpy="0 0 0" />
+    <parent
+        link="Chassis" />
+    <child
+        link="Wheel_A" />
+    <axis
+        xyz="-1 0 0" />
+    <limit
+        effort="50"
+        velocity="50" />
+    <dynamics
+        damping="0.03"
+        friction="0" />
+  </joint>
+  <link name="Wheel_A_hardware">
+    <inertial>
+      <origin
+          xyz="0.00524520153550705 3.55172583565988E-06 5.22637176791352E-05"
+          rpy="0 0 0" />
+      <mass
+          value="0.107395425040338" />
+      <inertia
+          ixx="1.25672485285836E-05"
+          ixy="-6.27105703207688E-09"
+          ixz="-9.24605192354479E-08"
+          iyy="7.4482302635449E-05"
+          iyz="3.57795161662041E-08"
+          izz="7.4540751840122E-05" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_A_hardware.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_A_hardware_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Wheel_A_hardware_fix" type="fixed">
+    <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+    <parent
+        link="Wheel_A" />
+    <child
+        link="Wheel_A_hardware" />
+    <axis
+        xyz="0 0 0" />
+  </joint>
+  <link name="Wheel_B">
+    <inertial>
+      <origin
+          xyz="-0.0156087870879138 9.48742878703612E-09 1.31572645001299E-08"
+          rpy="0 0 0" />
+      <mass
+          value="0.0805554411272263" />
+      <inertia
+          ixx="6.92941284791098E-05"
+          ixy="-1.04905795459927E-12"
+          ixz="-7.58135588284036E-14"
+          iyy="4.00053523343887E-05"
+          iyz="-3.45202119416946E-12"
+          izz="4.00053621969055E-05" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_B.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_B_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Wheel_B_cont" type="continuous">
+    <origin
+        xyz="0.044755 -0.0381 0"
+        rpy="0 0 0" />
+    <parent
+        link="Chassis" />
+    <child
+        link="Wheel_B" />
+    <axis
+        xyz="1 0 0" />
+    <limit
+        effort="50"
+        velocity="50" />
+    <dynamics
+        damping="0.03"
+        friction="0" />
+  </joint>
+  <link name="Wheel_B_hardware">
+    <inertial>
+      <origin
+          xyz="0.0141547920404221 4.73343544915572E-08 1.17344648442597E-08"
+          rpy="0 0 0" />
+      <mass
+          value="0.171354073334315" />
+      <inertia
+          ixx="2.55562605168195E-05"
+          ixy="-2.93763323128196E-20"
+          ixz="-6.16305158596492E-20"
+          iyy="0.000138151219527321"
+          iyz="-6.69293391607435E-21"
+          izz="0.000138151219527321" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_B_hardware.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_B_hardware_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Wheel_B_hardware_fix" type="fixed">
+    <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+    <parent
+        link="Wheel_B" />
+    <child
+        link="Wheel_B_hardware" />
+    <axis
+        xyz="0 0 0" />
+  </joint>
+  <link name="Wheel_B_tread">
+    <inertial>
+      <origin
+          xyz="-0.0156087870846788 4.73343541584903E-08 1.17344646222151E-08"
+          rpy="0 0 0" />
+      <mass
+          value="0.053132527029099" />
+      <inertia
+          ixx="0.000110358464295447"
+          ixy="7.91721383020927E-20"
+          ixz="-4.22311891860119E-20"
+          iyy="5.8018455243357E-05"
+          iyz="-2.97203409150891E-19"
+          izz="5.8018455243357E-05" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_B_tread.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_B_tread_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Wheel_B_tread_fix" type="fixed">
+    <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+    <parent
+        link="Wheel_B" />
+    <child
+        link="Wheel_B_tread" />
+    <axis
+        xyz="0 0 0" />
+  </joint>
+  <link name="Wheel_C">
+    <inertial>
+      <origin
+          xyz="0.0127000000007751 -7.8771706379932E-09 -3.70509400937635E-08"
+          rpy="0 0 0" />
+      <mass
+          value="0.0805554411370143" />
+      <inertia
+          ixx="6.92941284892498E-05"
+          ixy="-1.28862926331899E-13"
+          ixz="-1.04547902002735E-12"
+          iyy="4.00053607279124E-05"
+          iyz="4.90546138453576E-12"
+          izz="4.00053538081609E-05" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_C.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_C_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Wheel_C_cont" type="continuous">
+    <origin
+        xyz="0.015748 -0.0381 0.32703"
+        rpy="0 0 0" />
+    <parent
+        link="Chassis" />
+    <child
+        link="Wheel_C" />
+    <axis
+        xyz="1 0 0" />
+    <limit
+        effort="50"
+        velocity="50" />
+    <dynamics
+        damping="0.03"
+        friction="0" />
+  </joint>
+  <link name="Wheel_C_hardware">
+    <inertial>
+      <origin
+          xyz="0.0296967219263835 -5.55111512312578E-17 -2.22044604925031E-16"
+          rpy="0 0 0" />
+      <mass
+          value="0.0594178791128759" />
+      <inertia
+          ixx="1.16547748655771E-05"
+          ixy="-4.03895788854867E-20"
+          ixz="-6.69443089083758E-20"
+          iyy="3.17521703313499E-05"
+          iyz="-1.31829730147166E-21"
+          izz="3.17521703313499E-05" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_C_hardware.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="0.894117647058823 0.913725490196078 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_C_hardware_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Wheel_C_hardware_fix" type="fixed">
+    <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+    <parent
+        link="Wheel_C" />
+    <child
+        link="Wheel_C_hardware" />
+    <axis
+        xyz="0 0 0" />
+  </joint>
+  <link name="Wheel_C_tread">
+    <inertial>
+      <origin
+          xyz="0.0127 1.0547118733939E-15 4.44089209850063E-16"
+          rpy="0 0 0" />
+      <mass
+          value="0.0531325270290983" />
+      <inertia
+          ixx="0.000110358464295444"
+          ixy="-6.88782956315597E-21"
+          ixz="-1.04185595349557E-19"
+          iyy="5.80184552433558E-05"
+          iyz="4.28959322057727E-19"
+          izz="5.80184552433549E-05" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_C_tread.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_C_tread_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Wheel_C_tread_fix" type="fixed">
+    <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+    <parent
+        link="Wheel_C" />
+    <child
+        link="Wheel_C_tread" />
+    <axis
+        xyz="0 0 0" />
+  </joint>
+  <link name="Wheel_D">
+    <inertial>
+      <origin
+          xyz="-0.012700000001476 -1.39068486726401E-08 -3.52200589803786E-08"
+          rpy="0 0 0" />
+      <mass
+          value="0.0805554411091571" />
+      <inertia
+          ixx="6.92941284760743E-05"
+          ixy="4.81406002443151E-13"
+          ixz="9.58395012624742E-13"
+          iyy="4.00053631432056E-05"
+          iyz="1.27069582566498E-12"
+          izz="4.00053513843112E-05" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_D.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_D_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Wheel_D_cont" type="continuous">
+    <origin
+        xyz="0.56255 -0.0381 0.32703"
+        rpy="0 0 0" />
+    <parent
+        link="Chassis" />
+    <child
+        link="Wheel_D" />
+    <axis
+        xyz="1 0 0" />
+    <limit
+        effort="50"
+        velocity="50" />
+    <dynamics
+        damping="0.03"
+        friction="0" />
+  </joint>
+  <link name="Wheel_D_hardware">
+    <inertial>
+      <origin
+          xyz="-0.0296967219263838 -2.22044604925031E-16 -5.55111512312578E-16"
+          rpy="0 0 0" />
+      <mass
+          value="0.0594178791128762" />
+      <inertia
+          ixx="1.16547748655772E-05"
+          ixy="2.91424001608557E-20"
+          ixz="-3.76532614834138E-21"
+          iyy="3.17521703313499E-05"
+          iyz="-3.54736405693366E-21"
+          izz="3.17521703313499E-05" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_D_hardware.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_D_hardware_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Wheel_D_hardware_fix" type="fixed">
+    <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+    <parent
+        link="Wheel_D" />
+    <child
+        link="Wheel_D_hardware" />
+    <axis
+        xyz="0 0 0" />
+  </joint>
+  <link name="Wheel_D_tread">
+    <inertial>
+      <origin
+          xyz="-0.0127 5.55111512312578E-17 -1.11022302462516E-16"
+          rpy="0 0 0" />
+      <mass
+          value="0.0531325270290991" />
+      <inertia
+          ixx="0.000110358464295447"
+          ixy="-1.26853316813836E-20"
+          ixz="-3.21914137481203E-20"
+          iyy="5.80184552433569E-05"
+          iyz="-5.49303244438674E-19"
+          izz="5.80184552433572E-05" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_D_tread.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_D_tread_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Wheel_D_tread_fix" type="fixed">
+    <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+    <parent
+        link="Wheel_D" />
+    <child
+        link="Wheel_D_tread" />
+    <axis
+        xyz="0 0 0" />
+  </joint>
+  <link name="Wheel_E">
+    <inertial>
+      <origin
+          xyz="-0.00864821291998408 2.88279719540263E-08 -2.45693537737068E-08"
+          rpy="0 0 0" />
+      <mass
+          value="0.0805554411131264" />
+      <inertia
+          ixx="6.92941284787975E-05"
+          ixy="-7.42713201424248E-13"
+          ixz="7.71651892268596E-13"
+          iyy="4.00053534142642E-05"
+          iyz="-4.61145200939551E-12"
+          izz="4.00053611102014E-05" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_E.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_E_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Wheel_E_cont" type="continuous">
+    <origin
+        xyz="0.55849 -0.0381 0"
+        rpy="0 0 0" />
+    <parent
+        link="Chassis" />
+    <child
+        link="Wheel_E" />
+    <axis
+        xyz="1 0 0" />
+    <limit
+        effort="50"
+        velocity="50" />
+    <dynamics
+        damping="0.03"
+        friction="0" />
+  </joint>
+  <link name="Wheel_E_hardware">
+    <inertial>
+      <origin
+          xyz="-0.0237024284588977 -3.60822483003176E-15 3.33066907387547E-16"
+          rpy="0 0 0" />
+      <mass
+          value="0.0950915962115239" />
+      <inertia
+          ixx="8.66584762497867E-06"
+          ixy="-2.03064798164723E-20"
+          ixz="8.7225797486238E-22"
+          iyy="7.21549667440386E-05"
+          iyz="1.10019217149339E-21"
+          izz="7.21549667440386E-05" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_E_hardware.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_E_hardware_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Wheel_E_hardware_fix" type="fixed">
+    <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+    <parent
+        link="Wheel_E" />
+    <child
+        link="Wheel_E_hardware" />
+    <axis
+        xyz="0 0 0" />
+  </joint>
+  <link name="Wheel_E_tread">
+    <inertial>
+      <origin
+          xyz="-0.00864821291533024 -3.44169137633799E-15 1.11022302462516E-16"
+          rpy="0 0 0" />
+      <mass
+          value="0.0531325270290983" />
+      <inertia
+          ixx="0.000110358464295445"
+          ixy="3.73890806752807E-20"
+          ixz="-1.92443569510481E-20"
+          iyy="5.80184552433564E-05"
+          iyz="-2.84065196084131E-19"
+          izz="5.80184552433563E-05" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_E_tread.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_E_tread_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Wheel_E_tread_fix" type="fixed">
+    <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+    <parent
+        link="Wheel_E" />
+    <child
+        link="Wheel_E_tread" />
+    <axis
+        xyz="0 0 0" />
+  </joint>
+  <link name="Wheel_F">
+    <inertial>
+      <origin
+          xyz="-0.0172842071673476 -1.63865123692375E-08 -1.28289149858851E-08"
+          rpy="0 0 0" />
+      <mass
+          value="0.125505036271705" />
+      <inertia
+          ixx="0.000186758245325678"
+          ixy="3.60969100425291E-12"
+          ixz="-5.13826405913651E-12"
+          iyy="0.000104233660205587"
+          iyz="-3.05968138987379E-11"
+          izz="0.00010423367185402" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_F.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_F_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Wheel_F_cont" type="continuous">
+    <origin
+        xyz="0.55849 -0.0381 -0.33338"
+        rpy="0 0 0" />
+    <parent
+        link="Chassis" />
+    <child
+        link="Wheel_F" />
+    <axis
+        xyz="-1 0 0" />
+    <limit
+        effort="50"
+        velocity="50" />
+    <dynamics
+        damping="0.03"
+        friction="0" />
+  </joint>
+  <link name="Wheel_F_hardware">
+    <inertial>
+      <origin
+          xyz="-0.027811043340365 -2.16606082256154E-05 4.3858490541393E-05"
+          rpy="0 0 0" />
+      <mass
+          value="0.137329770612801" />
+      <inertia
+          ixx="2.69418362825904E-05"
+          ixy="-2.18465415728177E-08"
+          ixz="8.73142668173897E-08"
+          iyy="8.49862499752333E-05"
+          iyz="4.96985981341362E-08"
+          izz="8.52642901434368E-05" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_F_hardware.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="0.647058823529412 0.619607843137255 0.584313725490196 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Wheel_F_hardware_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Wheel_F_hardware_fix" type="fixed">
+    <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+    <parent
+        link="Wheel_F" />
+    <child
+        link="Wheel_F_hardware" />
+    <axis
+        xyz="0 0 0" />
+  </joint>
+  <link name="DBOS">
+    <inertial>
+      <origin
+          xyz="-0.107756713851027 -0.218787392175751 0.000242235030337046"
+          rpy="0 0 0" />
+      <mass
+          value="1.55142117511912" />
+      <inertia
+          ixx="0.0488488823781528"
+          ixy="-0.00111371951834444"
+          ixz="-2.13497967688586E-06"
+          iyy="0.00260519796967655"
+          iyz="-1.45415326554788E-05"
+          izz="0.0508375472146964" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/DBOS.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="0.894117647058823 0.913725490196078 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/DBOS_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="DBOS_rev" type="revolute">
+    <origin
+        xyz="0.3937 0.54561 0.015364"
+        rpy="0 0 0" />
+    <parent
+        link="Chassis" />
+    <child
+        link="DBOS" />
+    <axis
+        xyz="1 0 0" />
+    <limit
+        lower="-0.25"
+        upper="2"
+        effort="50"
+        velocity="10" />
+  </joint>
+  <link name="Bottom_jaw">
+    <inertial>
+      <origin
+          xyz="-0.104774979984599 0.104794722520331 0.017876810306609"
+          rpy="0 0 0" />
+      <mass
+          value="1.66600532020451" />
+      <inertia
+          ixx="0.0465760121384943"
+          ixy="2.271003700198E-09"
+          ixz="3.81317818249835E-10"
+          iyy="0.0443651391925163"
+          iyz="0.0147094895663906"
+          izz="0.0530187237030812" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Bottom_jaw.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="1 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Bottom_jaw_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Bottom_jaw_fix" type="fixed">
+    <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+    <parent
+        link="DBOS" />
+    <child
+        link="Bottom_jaw" />
+    <axis
+        xyz="0 0 0" />
+  </joint>
+  <link name="Shooter">
+    <inertial>
+      <origin
+          xyz="-0.00329589354365378 -0.0356931106286594 0.0231459403055962"
+          rpy="0 0 0" />
+      <mass
+          value="1.69198525454292" />
+      <inertia
+          ixx="0.0384033267865054"
+          ixy="-0.000299613685621622"
+          ixz="3.41752514319761E-07"
+          iyy="0.00152540956992732"
+          iyz="4.50575952718411E-05"
+          izz="0.0395362583701475" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Shooter.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="0.894117647058823 0.913725490196078 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Shooter_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Shooter_pris" type="prismatic">
+    <origin
+        xyz="-0.10239 -0.033337 -0.023019"
+        rpy="0 0 0" />
+    <parent
+        link="DBOS" />
+    <child
+        link="Shooter" />
+    <axis
+        xyz="0 1 0" />
+    <limit
+        lower="0"
+        upper="0.15"
+        effort="100"
+        velocity="100" />
+  </joint>
+  <link name="Latch">
+    <inertial>
+      <origin
+          xyz="-0.0023812500000005 0.0808242997762526 0.00722432521456584"
+          rpy="0 0 0" />
+      <mass
+          value="0.019184115023954" />
+      <inertia
+          ixx="5.32426211280534E-05"
+          ixy="-1.5032730894948E-20"
+          ixz="-1.16820308052602E-21"
+          iyy="1.02605354990785E-06"
+          iyz="2.32239460291215E-06"
+          izz="5.2289088029213E-05" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Latch.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Latch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Latch_rev" type="revolute">
+    <origin
+        xyz="-0.10239 -0.033337 -0.023019"
+        rpy="0 0 0" />
+    <parent
+        link="DBOS" />
+    <child
+        link="Latch" />
+    <axis
+        xyz="-1 0 0" />
+    <limit
+        lower="0"
+        upper="0.125"
+        effort="100"
+        velocity="10" />
+  </joint>
+  <link name="Top_jaw">
+    <inertial>
+      <origin
+          xyz="-0.168899827218921 0.228008065898568 -0.155890434652077"
+          rpy="0 0 0" />
+      <mass
+          value="1.51684764913117" />
+      <inertia
+          ixx="0.0618227334696721"
+          ixy="3.38817197577303E-08"
+          ixz="9.81518813659077E-09"
+          iyy="0.0408554868732361"
+          iyz="-0.00371132868370918"
+          izz="0.0883193599170598" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Top_jaw.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="1 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Top_jaw_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Top_jaw_rev" type="revolute">
+    <origin
+        xyz="0.064125 0.13458 -0.17483"
+        rpy="0 0 0" />
+    <parent
+        link="DBOS" />
+    <child
+        link="Top_jaw" />
+    <axis
+        xyz="-1 0 0" />
+    <limit
+        lower="-0.125"
+        upper="0.5"
+        effort="10"
+        velocity="10" />
+  </joint>
+  <link name="Left_roller">
+    <inertial>
+      <origin
+          xyz="-0.104966445728456 -1.09527939162746E-07 -1.39881322136493E-07"
+          rpy="0 0 0" />
+      <mass
+          value="1.5060653420197" />
+      <inertia
+          ixx="0.00084238665595493"
+          ixy="-1.90230429206169E-08"
+          ixz="-2.42958496272385E-08"
+          iyy="0.00589761624001303"
+          iyz="-1.59703796469898E-08"
+          izz="0.00589755274324219" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Left_roller.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="0.894117647058823 0.913725490196078 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Left_roller_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Left_roller_cont" type="continuous">
+    <origin
+        xyz="0.11871 0.46481 0.00087818"
+        rpy="0.25996 -0.29637 -0.73871" />
+    <parent
+        link="Top_jaw" />
+    <child
+        link="Left_roller" />
+    <axis
+        xyz="1 0 0" />
+    <limit
+        effort="10"
+        velocity="20" />
+    <dynamics
+        damping="0.03"
+        friction="0" />
+  </joint>
+  <link name="Center_roller">
+    <inertial>
+      <origin
+          xyz="-0.10329 1.39435601287374E-07 -6.03360531536978E-08"
+          rpy="0 0 0" />
+      <mass
+          value="1.48008795790487" />
+      <inertia
+          ixx="0.000837033613072867"
+          ixy="-2.1913116373586E-08"
+          ixz="-5.06408429092024E-08"
+          iyy="0.0056525382743889"
+          iyz="-1.30948528002144E-08"
+          izz="0.00565256287001739" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Center_roller.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="0.894117647058823 0.913725490196078 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Center_roller_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Center_roller_cont" type="continuous">
+    <origin
+        xyz="-0.06561 0.6102 -0.065056"
+        rpy="0 0 0" />
+    <parent
+        link="Top_jaw" />
+    <child
+        link="Center_roller" />
+    <axis
+        xyz="-1 0 0" />
+    <limit
+        effort="10"
+        velocity="20" />
+    <dynamics
+        damping="0.03"
+        friction="0" />
+  </joint>
+  <link name="Right_roller_col">
+    <inertial>
+      <origin
+          xyz="-0.10161355426583 -1.01256709017505E-07 -1.45985626087697E-07"
+          rpy="0 0 0" />
+      <mass
+          value="1.50606534199968" />
+      <inertia
+          ixx="0.000842386655957156"
+          ixy="1.75870391543681E-08"
+          ixz="2.53539668267837E-08"
+          iyy="0.00589755030557346"
+          iyz="6.28487690200203E-09"
+          izz="0.00589761867737046" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Right_roller.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="0.894117647058823 0.913725490196078 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Right_roller_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Right_roller_cont" type="continuous">
+    <origin
+        xyz="-0.31044 0.59785 -0.059453"
+        rpy="0.25996 0.29637 0.73871" />
+    <parent
+        link="Top_jaw" />
+    <child
+        link="Right_roller_col" />
+    <axis
+        xyz="-1 0 0" />
+    <limit
+        effort="10"
+        velocity="20" />
+    <dynamics
+        damping="0.03"
+        friction="0" />
+  </joint>
+  <link name="shaft">
+    <inertial>
+      <origin
+          xyz="-0.101385438705602 0.133760774780689 -0.177258434738485"
+          rpy="0 0 0" />
+      <mass
+          value="1.09013919890601" />
+      <inertia
+          ixx="0.000469170776561315"
+          ixy="-6.25954170324337E-05"
+          ixz="-0.000185703257335024"
+          iyy="0.0104822117178021"
+          iyz="7.66544748901067E-05"
+          izz="0.0102806372287783" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/shaft.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/shaft_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="shaft_fix" type="fixed">
+    <origin
+        xyz="-0.0641250221243044 -0.134580347555261 0.174826989415359"
+        rpy="0 0 0" />
+    <parent
+        link="Top_jaw" />
+    <child
+        link="shaft" />
+    <axis
+        xyz="0 0 0" />
+  </joint>
+  <link name="Chassis_black">
+    <inertial>
+      <origin
+          xyz="0.320648840198257 -0.0357919546204103 -0.0433178279691229"
+          rpy="0 0 0" />
+      <mass
+          value="9.39642953207796" />
+      <inertia
+          ixx="0.179003245008425"
+          ixy="-0.00914353826033476"
+          ixz="-0.0165217627658896"
+          iyy="0.315769470304227"
+          iyz="0.0104577747754428"
+          izz="0.179227286370185" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Chassis_black.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0.05 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Chassis_black_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Chassis_black_fix" type="fixed">
+    <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+    <parent
+        link="Chassis" />
+    <child
+        link="Chassis_black" />
+    <axis
+        xyz="0 0 0" />
+  </joint>
+  <link name="Chassis_red">
+    <inertial>
+      <origin
+          xyz="0.230038505103309 -0.0508842319249949 -0.199478062040305"
+          rpy="0 0 0" />
+      <mass
+          value="0.182096919491294" />
+      <inertia
+          ixx="0.000529551503292892"
+          ixy="6.0725687805291E-05"
+          ixz="3.89178211991252E-05"
+          iyy="0.00103140845883485"
+          iyz="-2.38788073395763E-07"
+          izz="0.000565936872845247" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Chassis_red.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0.05 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Chassis_red_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Chassis_red_fix" type="fixed">
+    <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+    <parent
+        link="Chassis_black" />
+    <child
+        link="Chassis_red" />
+    <axis
+        xyz="0 0 0" />
+  </joint>
+  <link name="Chassis_blue">
+    <inertial>
+      <origin
+          xyz="0.289173949905375 -0.0627112272365585 -0.230791953247961"
+          rpy="0 0 0" />
+      <mass
+          value="0.323130215847969" />
+      <inertia
+          ixx="0.00151684996920465"
+          ixy="5.87443041404179E-05"
+          ixz="-0.00116271104321399"
+          iyy="0.00418225519130399"
+          iyz="2.73780939661078E-05"
+          izz="0.00280760562149255" />
+    </inertial>
+    <visual name="Chassis_visual_blue">
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Chassis_blue.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="0.152941176470588 0.635294117647059 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0.05 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Chassis_blue_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Chassis_blue_fix" type="fixed">
+    <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+    <parent
+        link="Chassis_black" />
+    <child
+        link="Chassis_blue" />
+    <axis
+        xyz="0 0 0" />
+  </joint>
+  <link name="Comm_light">
+    <inertial>
+      <origin
+          xyz="0.118766360141236 0.600367225745219 0.0363296348403547"
+          rpy="0 0 0" />
+      <mass
+          value="0.0229070211455497" />
+      <inertia
+          ixx="2.92084899213925E-06"
+          ixy="-2.37450431926182E-12"
+          ixz="-9.96249766270988E-14"
+          iyy="4.39022409195227E-06"
+          iyz="-4.87913785406956E-13"
+          izz="2.92083848782034E-06" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Comm_light.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0.05 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Comm_light_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Comm_light_fix" type="fixed">
+    <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+    <parent
+        link="Chassis_black" />
+    <child
+        link="Comm_light" />
+    <axis
+        xyz="0 0 0" />
+  </joint>
+  <link name="Radio">
+    <inertial>
+      <origin
+          xyz="0.1380828822619 0.204698609306554 0.108507969960384"
+          rpy="0 0 0" />
+      <mass
+          value="0.486400258093144" />
+      <inertia
+          ixx="0.00131014044614359"
+          ixy="8.98528659101306E-05"
+          ixz="-1.22283879640965E-05"
+          iyy="0.000547227959466576"
+          iyz="-0.000102166001239684"
+          izz="0.000863672391553467" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Radio.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0.05 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Radio_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Radio_fix" type="fixed">
+    <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+    <parent
+        link="Chassis_black" />
+    <child
+        link="Radio" />
+    <axis
+        xyz="0 0 0" />
+  </joint>
+  <link name="Bumpers">
+    <inertial>
+      <origin
+          xyz="0.288925 0.0254000000000002 0"
+          rpy="0 0 0" />
+      <mass
+          value="6.28999615926753" />
+      <inertia
+          ixx="0.78486242437765"
+          ixy="2.24335280170005E-16"
+          ixz="1.70362802285628E-17"
+          iyy="1.30378581344506"
+          iyz="1.64070512699636E-16"
+          izz="0.534727714430324" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Bumpers.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Bumpers_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Bumpers_fix" type="fixed">
+    <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+    <parent
+        link="Chassis_black" />
+    <child
+        link="Bumpers" />
+    <axis
+        xyz="0 0 0" />
+  </joint>
+  <link name="Clear_plastic">
+    <inertial>
+      <origin
+          xyz="0.28892 -0.0381 -0.0014984"
+          rpy="0 0 0" />
+      <mass
+          value="0.42165" />
+      <inertia
+          ixx="0.029632"
+          ixy="-3.592E-12"
+          ixz="-9.4686E-16"
+          iyy="0.059873"
+          iyz="4.2514E-12"
+          izz="0.030408" />
+    </inertial>
+    <visual>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Clear_plastic.STL" />
+      </geometry>
+      <material
+          name="">
+        <color
+            rgba="1 1 1 0.25" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0.05 0"
+          rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://PacGoat/meshes/Clear_plastic_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Clear_plastic_fix" type="fixed">
+    <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+    <parent
+        link="Chassis_black" />
+    <child
+        link="Clear_plastic" />
+    <axis
+        xyz="0 0 0" />
+  </joint>
+
+  <gazebo>
+    <plugin name="FRCPlugin" filename="libfrc_gazebo_plugin.so">
+      <robotmap>model://PacGoat/robotmap.xml</robotmap>
+    </plugin>
+  </gazebo>
+
+  <gazebo reference="chassis">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="Wheel_A">
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="Wheel_A_hardware">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="Wheel_B">
+    <mu1>5</mu1>
+    <mu2>5</mu2>
+  </gazebo>
+
+  <gazebo reference="Wheel_B_hardware">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="Wheel_B_tread">
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="Wheel_C">
+    <mu1>5</mu1>
+    <mu2>5</mu2>
+  </gazebo>
+
+  <gazebo reference="Wheel_C_hardware">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="Wheel_C_tread">
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="wheel_D">
+    <mu1>5</mu1>
+    <mu2>5</mu2>
+  </gazebo>
+
+  <gazebo reference="Wheel_D_hardware">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="Wheel_D_tread">
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="wheel_E">
+    <mu1>5</mu1>
+    <mu2>5</mu2>
+  </gazebo>
+
+  <gazebo reference="Wheel_E_hardware">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="Wheel_E_tread">
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="Wheel_F">
+    <material>Gazebo/Black</material>
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+
+  <gazebo reference="Wheel_F_hardware">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="DBOS">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="Bottom_jaw">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="Shooter">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="Latch">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="Chassis_black">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="Chassis_red">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="Chassis_blue">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="Comm_light">
+    <material>Gazebo/OrangeTransparent</material>
+  </gazebo>
+
+  <gazebo reference="Radio">
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="Bumpers">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="Clear_plastic">
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="Center_roller">
+    <material>Gazebo/Black</material>
+    <mu1>5</mu1>
+    <mu2>5</mu2>
+  </gazebo>
+
+  <gazebo reference="Left_roller">
+    <material>Gazebo/Black</material>
+    <mu1>5</mu1>
+    <mu2>5</mu2>
+  </gazebo>
+
+  <gazebo reference="Right_roller">
+    <material>Gazebo/FlatBlack</material>
+    <mu1>5</mu1>
+    <mu2>5</mu2>
+  </gazebo>
+
+  <gazebo reference="Top_jaw">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+</robot>

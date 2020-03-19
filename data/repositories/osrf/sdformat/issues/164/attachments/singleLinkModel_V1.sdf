@@ -1,0 +1,74 @@
+<sdf version='1.6'>
+  <model name='singleLinkModel'>
+    <link name='r_foot'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0.033624 0.005365 -0.001138 -1.5708 -0 -1.5708</pose>
+        <mass>0.38227</mass>
+        <inertia>
+          <ixx>0.00120765</ixx>
+          <ixy>3.70545e-07</ixy>
+          <ixz>-5.78137e-05</ixz>
+          <iyy>0.00141242</iyy>
+          <iyz>-7.82502e-06</iyz>
+          <izz>0.000273419</izz>
+        </inertia>
+      </inertial>
+      <collision name='r_foot_collision'>
+        <pose frame=''>0.047209 -0.0701 -0.647438 -1.5708 -0 -1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCub/meshes/simmechanics/sim_sea_2-5_r_sole_prt-binary.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+            <threshold>100000</threshold>
+          </bounce>
+          <contact>
+            <ode>
+              <kp>1.8e+07</kp>
+              <kd>100</kd>
+              <max_vel>100</max_vel>
+              <min_depth>0.0001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+              <fdir1>0 0 0</fdir1>
+            </ode>
+          </friction>
+        </surface>
+        <max_contacts>4</max_contacts>
+      </collision>
+      <visual name='r_foot_visual'>
+        <pose frame=''>0.047209 -0.0701 -0.647438 -1.5708 -0 -1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCub/meshes/simmechanics/sim_sea_2-5_r_sole_prt-binary.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>__default__</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <sensor name='r_foot_acc' type='imu'>
+        <always_on>1</always_on>
+        <update_rate>100</update_rate>
+        <pose frame=''>0.103474 -0.000807 -0.001215 0 0 -1.5708</pose>
+        <plugin name='iCub_yarp_gazebo_plugin_ACC' filename='libgazebo_yarp_inertial.so'/>
+      </sensor>
+    </link>
+  </model>
+</sdf>

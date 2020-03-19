@@ -1,0 +1,50 @@
+<robot name="singleLinkModel">
+  <link name="r_foot">
+    <inertial>
+      <origin xyz="0.0336237 0.0053646 -0.001138" rpy="-1.57079632679 0 -1.57079632679"/>
+      <mass value="0.38227"/>
+      <inertia ixx="0.00120765" ixy="3.70545e-07" ixz="-5.78137e-05" iyy="0.00141242" iyz="-7.82502e-06" izz="0.000273419"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0472089996185 -0.0701000001907 -0.647438" rpy="-1.57079632679 0 -1.57079632679"/>
+      <geometry>
+        <mesh filename="package://iCub/meshes/simmechanics/sim_sea_2-5_r_sole_prt-binary.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0472089996185 -0.0701000001907 -0.647438" rpy="-1.57079632679 0 -1.57079632679"/>
+      <geometry>
+        <mesh filename="package://iCub/meshes/simmechanics/sim_sea_2-5_r_sole_prt-binary.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+<gazebo reference="r_foot">
+  <collision>
+  <surface>
+  <bounce>
+    <restitution_coefficient>0</restitution_coefficient>
+    <threshold>100000</threshold>
+  </bounce>
+  </surface>
+  </collision>
+  <maxContacts>4</maxContacts>
+  <kp>18000000</kp>
+  <kd>100</kd>
+  <maxVel>100</maxVel>
+  <minDepth>0.0001</minDepth>
+  <mu1>1</mu1>
+  <mu2>1</mu2>
+  <fdir1>0 0 0</fdir1>
+</gazebo>
+  <gazebo reference="r_foot">
+    <sensor name="r_foot_acc" type="imu">
+      <always_on>1</always_on>
+      <update_rate>100</update_rate>
+      <pose>0.1034744 -0.000807 -0.001215 2.22044604925e-16 2.22044604925e-16 -1.57079632679</pose>
+      <plugin name="iCub_yarp_gazebo_plugin_ACC" filename="libgazebo_yarp_inertial.so"/>
+    </sensor>
+  </gazebo>
+</robot>

@@ -1,0 +1,8 @@
+{
+    "osrf/sdformat": {
+        "project_file": "data/repositories/osrf/sdformat.json",
+        "project_path": "data/repositories/osrf/sdformat/",
+        "is_fork": false,
+        "github_repo": "https://github.com/scpeters-test/sdformat"
+    }
+}

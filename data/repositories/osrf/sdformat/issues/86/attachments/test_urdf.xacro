@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="test_converter">
+
+  <link name="link_slot1">
+    <visual>
+      <geometry>
+        <box size="1 1 1" />
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    </visual> 
+    <collision>
+      <geometry>
+        <box size="1 1 1" />
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <mass value="5"/>
+      <inertia ixx="1" ixy="0.0" ixz="0.0" iyy="1" iyz="0.0" izz="1"/>
+    </inertial>
+  </link>
+
+  <link name="link_slot1_switch">
+    <visual>
+      <geometry>
+        <box size="1 1 1" />
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    </visual> 
+    <collision>
+      <geometry>
+        <box size="1 1 1" />
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <mass value="5"/>
+      <inertia ixx="1" ixy="0.0" ixz="0.0" iyy="1" iyz="0.0" izz="1"/>
+    </inertial>
+  </link>
+
+  <link name="link_slot1_switch_cover">
+    <visual>
+      <geometry>
+        <box size="1 1 1" />
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    </visual> 
+    <collision>
+      <geometry>
+        <box size="1 1 1" /><box size="1 1 1" />
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <mass value="5"/>
+      <inertia ixx="1" ixy="0.0" ixz="0.0" iyy="1" iyz="0.0" izz="1"/>
+    </inertial>
+  </link>
+
+  <joint name="link_slot1/link_slot1_switch" type="revolute">
+    <parent link="link_slot1"/>
+    <child link="link_slot1_switch"/>
+    <origin rpy="0.419 0 0" xyz=".037 .111 0.005"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="10000000.0" lower="-0.84" upper="0" velocity="1000"/>
+  </joint>
+
+  <joint name="link_slot1/link_slot1_switch_cover" type="revolute">
+    <parent link="link_slot1"/>
+    <child link="link_slot1_switch_cover"/>
+    <origin rpy="0 0 0" xyz="0.037 0.124 0.011"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="10000000.0" lower="-1.57" upper="0" velocity="1000"/>
+  </joint>
+
+  <gazebo reference="link_slot1">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="link_slot1_switch">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="link_slot1_switch_cover">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+</robot>

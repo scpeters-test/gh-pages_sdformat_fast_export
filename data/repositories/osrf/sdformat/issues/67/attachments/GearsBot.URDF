@@ -1,0 +1,794 @@
+<robot
+  name="GearsBot">
+  <link
+    name="chassis">
+    <inertial>
+      <origin
+        xyz="-0.188518969761786 0.115065796977772 -0.0848008437966542"
+        rpy="0 0 0" />
+      <mass
+        value="5.01769332823169" />
+      <inertia
+        ixx="0.120423888615064"
+        ixy="-0.00267274587752701"
+        ixz="0.00296283000954473"
+        iyy="0.0757523276000176"
+        iyz="0.0225962938025933"
+        izz="0.128486578394599" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="-0.2011 0.0952 -0.1162"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://GearsBot/meshes/chassis.STL" />
+        <!-- <mesh -->
+        <!--   filename="package://GearsBot/meshes/collision/chassis.STL" /> -->
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://GearsBot/meshes/collision/chassis.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="frontLeftWheel">
+    <inertial>
+      <origin
+        xyz="-0.0140994685129685 -0.00452500401410166 0.00952836984581357"
+        rpy="0 0 0" />
+      <mass
+        value="0.183430716868879" />
+      <inertia
+        ixx="0.000151076817089772"
+        ixy="2.46441448473337E-09"
+        ixz="3.26638903859599E-09"
+        iyy="0.000235889967379723"
+        iyz="1.38723592447883E-08"
+        izz="0.000151062949663376" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <!-- <mesh -->
+        <!--   filename="package://GearsBot/meshes/frontLeftWheel.STL" /> -->
+        <!-- <mesh -->
+        <!--   filename="package://GearsBot/meshes/collision/frontLeft.STL" /> -->
+        <!-- <cylinder length="0.025" radius="0.05"/> -->
+        <mesh
+          filename="package://GearsBot/meshes/collision/OmniCollisional.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0.501960784313725 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <!-- <mesh -->
+        <!--   filename="package://GearsBot/meshes/collision/frontLeft.STL" /> -->
+        <mesh
+          filename="package://GearsBot/meshes/collision/OmniCollisional.STL" />
+        <!-- <cylinder length="0.025" radius="0.05"/> -->
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jFrontLeft"
+    type="continuous">
+    <origin
+      xyz="-0.3154 0.27935 -0.12636"
+      rpy="0 0 1.5708" />
+    <parent
+      link="chassis" />
+    <child
+      link="frontLeftWheel" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="100"
+      velocity="0.01" />
+    <dynamics
+      damping="0.2"
+      friction="0" />
+  </joint>
+  <link
+    name="frontRightWheel">
+    <inertial>
+      <origin
+        xyz="-0.0222626184565288 -0.00158084649803691 0.0221596863609377"
+        rpy="0 0 0" />
+      <mass
+        value="0.182962258831787" />
+      <inertia
+        ixx="0.000149655297133901"
+        ixy="-2.61719584018401E-09"
+        ixz="2.06617265746413E-09"
+        iyy="0.000235671411226277"
+        iyz="1.75820330540436E-09"
+        izz="0.000149649424906607" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <!-- <mesh -->
+        <!--   filename="package://GearsBot/meshes/frontRightWheel.STL" /> -->
+        <!-- <mesh -->
+        <!--   filename="package://GearsBot/meshes/collision/frontRight.STL" /> -->
+        <mesh
+          filename="package://GearsBot/meshes/collision/OmniCollisional.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <!-- <mesh -->
+        <!--   filename="package://GearsBot/meshes/collision/frontRight.STL" /> -->
+        <mesh
+          filename="package://GearsBot/meshes/collision/OmniCollisional.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jFrontRight"
+    type="continuous">
+    <origin
+      xyz="-0.0868 0.27935 -0.12636"
+      rpy="0 0 1.5708" />
+    <parent
+      link="chassis" />
+    <child
+      link="frontRightWheel" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="100"
+      velocity="0.01" />
+    <dynamics
+      damping="0.2"
+      friction="0" />
+  </joint>
+  <link
+    name="backLeftWheel">
+    <inertial>
+      <origin
+        xyz="-0.022263 -0.0015808 0.02216"
+        rpy="0 0 0" />
+      <mass
+        value="0.18296" />
+      <inertia
+        ixx="0.00014966"
+        ixy="-2.6368E-09"
+        ixz="2.0517E-09"
+        iyy="0.00023567"
+        iyz="1.7444E-09"
+        izz="0.00014965" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <!-- <mesh -->
+        <!--   filename="package://GearsBot/meshes/backLeftWheel.STL" />n -->
+        <!-- <mesh -->
+        <!--     filename="package://GearsBot/meshes/collision/backLeft.STL" /> -->
+        <mesh
+          filename="package://GearsBot/meshes/collision/OmniCollisional.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.25098 0.25098 0.25098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <!-- <mesh -->
+        <!--     filename="package://GearsBot/meshes/collision/backLeft.STL" /> -->
+        <mesh
+          filename="package://GearsBot/meshes/collision/OmniCollisional.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jBackLeft"
+    type="continuous">
+    <origin
+      xyz="-0.3154 -0.08895 -0.12636"
+      rpy="0 0 1.5708" />
+    <parent
+      link="chassis" />
+    <child
+      link="backLeftWheel" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="100"
+      velocity="0.01" />
+    <dynamics
+      damping="0.2"
+      friction="0" />
+  </joint>
+  <link
+    name="backRightWheel">
+    <inertial>
+      <origin
+        xyz="-0.014099 -0.004525 0.0095284"
+        rpy="0 0 0" />
+      <mass
+        value="0.18343" />
+      <inertia
+        ixx="0.00015108"
+        ixy="2.4641E-09"
+        ixz="3.2659E-09"
+        iyy="0.00023589"
+        iyz="1.3873E-08"
+        izz="0.00015106" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <!-- <mesh -->
+        <!--   filename="package://GearsBot/meshes/backRightWheel.STL" /> -->
+        <!-- <mesh -->
+        <!--     filename="package://GearsBot/meshes/collision/backRight.STL" /> -->
+        <mesh
+            filename="package://GearsBot/meshes/collision/OmniCollisional.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0.50196 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+      <geometry>
+        <!-- <mesh -->
+        <!--     filename="package://GearsBot/meshes/collision/backRight.STL" /> -->
+        <mesh
+            filename="package://GearsBot/meshes/collision/OmniCollisional.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jBackRight"
+    type="continuous">
+    <origin
+      xyz="-0.0868 -0.08895 -0.12636"
+      rpy="0 0 1.5708" />
+    <parent
+      link="chassis" />
+    <child
+      link="backRightWheel" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="100"
+      velocity="0.01" />
+    <dynamics
+      damping="0.2"
+      friction="0" />
+  </joint>
+  <link
+    name="elevator">
+    <inertial>
+      <origin
+        xyz="-0.20055 0.36444 -0.084693"
+        rpy="0 0 0" />
+      <mass
+        value="0.14903" />
+      <inertia
+        ixx="0.00015713"
+        ixy="-2.1626E-06"
+        ixz="1.588E-06"
+        iyy="0.00030244"
+        iyz="-3.8445E-05"
+        izz="0.00032189" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="-0.2011 0.0952 -0.1162"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://GearsBot/meshes/elevator.STL" />
+        <!-- <mesh -->
+        <!--   filename="package://GearsBot/meshes/collision/elevator.STL" /> -->
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://GearsBot/meshes/collision/elevator.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jElevator"
+    type="prismatic">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="chassis" />
+    <child
+      link="elevator" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0.3"
+      effort="40"
+      velocity="100" />
+    <dynamics
+      damping="5"
+      friction="0" />
+  </joint>
+  <link
+    name="wrist">
+    <inertial>
+      <origin
+        xyz="-7.1176E-05 0.016629 0.040792"
+        rpy="0 0 0" />
+      <mass
+        value="0.20421" />
+      <inertia
+        ixx="0.00051443"
+        ixy="9.0062E-07"
+        ixz="1.1456E-05"
+        iyy="0.00058716"
+        iyz="-1.571E-05"
+        izz="0.00018931" />
+    </inertial>
+    <visual>
+      <!-- <origin -->
+      <!--   xyz="0 0 0" -->
+      <!--   rpy="1.5708 -3.14 1.5708" /> -->
+      <origin
+        xyz="0.095 0.05 0"
+        rpy="0 -1.57 0" />
+      <geometry>
+        <mesh
+          filename="package://GearsBot/meshes/wrist.STL" />
+        <!-- <mesh -->
+        <!--   filename="package://Protobot/meshes/claw.STL" /> -->
+        <!-- <mesh -->
+        <!--   filename="package://GearsBot/meshes/collision/wrist.STL" /> -->
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 0.3" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <!-- <mesh -->
+        <!--   filename="package://Protobot/meshes/claw.STL" /> -->
+        <mesh
+          filename="package://GearsBot/meshes/collision/wrist.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jWrist"
+    type="revolute">
+    <origin
+      xyz="-0.20115 0.42766 -0.13828"
+      rpy="1.5708 0 -1.5708" />
+    <parent
+      link="elevator" />
+    <child
+      link="wrist" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1"
+      upper="0"
+      effort="100"
+      velocity="1" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+
+  <link
+    name="leftFinger">
+    <inertial>
+      <origin
+        xyz="0.013123 -1.7347E-18 0.03315"
+        rpy="0 0 0" />
+      <mass
+        value="0.049208" />
+      <inertia
+        ixx="5.2203E-05"
+        ixy="-4.2027E-22"
+        ixz="1.0345E-05"
+        iyy="6.106E-05"
+        iyz="-2.2949E-21"
+        izz="1.018E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <!-- <mesh -->
+        <!--   filename="package://GearsBot/meshes/leftFinger.STL" /> -->
+        <mesh
+          filename="package://GearsBot/meshes/collision/leftFinger.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision name="leftFingerCollision">
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://GearsBot/meshes/collision/leftFinger.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jLeftFinger"
+    type="revolute">
+    <origin
+      xyz="-0.06 0.0049954 0.018471"
+      rpy="0 -1.4129 0" />
+    <parent
+      link="wrist" />
+    <child
+      link="leftFinger" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-0.524"
+      upper="0.131"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.2"
+      friction="0" />
+  </joint>
+  <link
+    name="rightFinger">
+    <inertial>
+      <origin
+        xyz="0.013123 -1.7347E-18 0.03315"
+        rpy="0 0 0" />
+      <mass
+        value="0.049208" />
+      <inertia
+        ixx="5.2203E-05"
+        ixy="-3.4627E-22"
+        ixz="1.0345E-05"
+        iyy="6.106E-05"
+        iyz="-2.9606E-22"
+        izz="1.018E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <!-- <mesh -->
+        <!--   filename="package://GearsBot/meshes/rightFinger.STL" /> -->
+        <mesh
+          filename="package://GearsBot/meshes/collision/rightFinger.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision name="rightFingerCollision">
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://GearsBot/meshes/collision/rightFinger.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jRightFinger"
+    type="revolute">
+    <origin
+      xyz="-0.06 0.0049954 -0.019629"
+      rpy="-3.1416 1.4322 1.3893E-31" />
+    <parent
+      link="wrist" />
+    <child
+      link="rightFinger" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-0.524"
+      upper="0.131"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.2"
+      friction="0" />
+  </joint>
+  
+  <link
+    name="Camera">
+    <inertial>
+      <origin
+        xyz="-7.4418E-06 0.0043274 -0.010112"
+        rpy="0 0 0" />
+      <mass
+        value="0.10621" />
+      <inertia
+        ixx="7.3134E-05"
+        ixy="7.9651E-09"
+        ixz="-8.9146E-09"
+        iyy="3.0769E-05"
+        iyz="-3.9082E-06"
+        izz="9.2194E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5708 1.5708 0" />
+      <geometry>
+        <mesh
+          filename="package://GearsBot/meshes/Camera.STL" />
+        <!-- <mesh -->
+        <!--   filename="package://Protobot/meshes/camera.STL" /> -->
+        <!-- <mesh -->
+        <!--   filename="package://GearsBot/meshes/collision/camera.STL" /> -->
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <!-- <mesh -->
+        <!--   filename="package://Protobot/meshes/camera.STL" /> -->
+        <mesh
+          filename="package://GearsBot/meshes/collision/camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jCamera"
+    type="fixed">
+    <origin
+      xyz="-0.20115 0.42488 0.30943"
+      rpy="1.5708 -0.89012 1.5708" />
+    <parent
+      link="chassis" />
+    <child
+      link="Camera" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  
+  <gazebo>
+    <plugin name="clock" filename="libgz_clock.so">
+      <topic>/gazebo/frc/time</topic>
+    </plugin>
+
+    <!-- Drive Train -->
+    <plugin name="jFrontLeft_motor" filename="libgz_dc_motor.so">
+      <joint>jFrontLeft</joint>
+      <topic>/gazebo/frc/simulator/pwm/1</topic>
+      <multiplier>20.0</multiplier>
+    </plugin>
+    <plugin name="jBackLeft_motor" filename="libgz_dc_motor.so">
+      <joint>jBackLeft</joint>
+      <topic>/gazebo/frc/simulator/pwm/2</topic>
+      <multiplier>20.0</multiplier>
+    </plugin>
+    <plugin name="jFrontRight_motor" filename="libgz_dc_motor.so">
+      <joint>jFrontRight</joint>
+      <topic>/gazebo/frc/simulator/pwm/3</topic>
+      <multiplier>-20.0</multiplier>
+    </plugin>
+    <plugin name="jBackRight_motor" filename="libgz_dc_motor.so">
+      <joint>jBackRight</joint>
+      <topic>/gazebo/frc/simulator/pwm/4</topic>
+      <multiplier>-20.0</multiplier>
+    </plugin>
+
+    <plugin name="jBackLeft_encoder" filename="libgz_encoder.so">
+      <joint>jBackLeft</joint>
+      <topic>/gazebo/frc/simulator/dio/1/2</topic>
+      <units>degrees</units>
+    </plugin>
+    <plugin name="jBackRight_encoder" filename="libgz_encoder.so">
+      <joint>jBackRight</joint>
+      <topic>/gazebo/frc/simulator/dio/3/4</topic>
+      <units>degrees</units>
+    </plugin>
+
+    <plugin name="chassis_gyro" filename="libgz_gyro.so">
+      <link>chassis</link>
+      <topic>/gazebo/frc/simulator/analog/2</topic>
+      <axis>yaw</axis>
+      <units>degrees</units>
+    </plugin>
+    <plugin name="chassisUltrasonic_rangefinder" filename="libgz_rangefinder.so">
+      <sensor>chassisUltrasonic</sensor>
+      <topic>/gazebo/frc/simulator/analog/6</topic>
+    </plugin>
+
+    <!-- Elevator -->
+    <plugin name="jElevator_motor" filename="libgz_dc_motor.so">
+      <joint>jElevator</joint>
+      <topic>/gazebo/frc/simulator/pwm/5</topic>
+      <multiplier>5.0</multiplier>
+    </plugin>
+    <plugin name="jElevator_pot" filename="libgz_potentiometer.so">
+      <joint>jElevator</joint>
+      <topic>/gazebo/frc/simulator/analog/2</topic>
+    </plugin>
+
+    <!-- Wrist -->
+    <plugin name="jWrist_motor" filename="libgz_dc_motor.so">
+      <joint>jWrist</joint>
+      <topic>/gazebo/frc/simulator/pwm/6</topic>
+      <multiplier>5.0</multiplier>
+    </plugin>
+    <plugin name="jWrist_pot" filename="libgz_potentiometer.so">
+      <joint>jWrist</joint>
+      <topic>/gazebo/frc/simulator/analog/3</topic>
+      <units>degrees</units>
+    </plugin>
+
+    <!-- Claw -->
+    <plugin name="jLeftFinger_motor" filename="libgz_dc_motor.so">
+      <joint>jLeftFinger</joint>
+      <topic>/gazebo/frc/simulator/pwm/7</topic>
+      <multiplier>1.0</multiplier>
+    </plugin>
+    <plugin name="jRightFinger_motor" filename="libgz_dc_motor.so">
+      <joint>jRightFinger</joint>
+      <topic>/gazebo/frc/simulator/pwm/7</topic>
+      <multiplier>1.0</multiplier>
+    </plugin>
+    <plugin name="leftFingerContact_limit" filename="libgz_limit_switch.so">
+      <topic>/gazebo/frc/simulator/dio/5</topic>
+      <type>external</type>
+      <sensor>leftFingerContact</sensor>
+    </plugin>
+  </gazebo>
+  
+  <gazebo reference="Camera">
+    <sensor name="robotCamera" type="camera">
+      <visualize>true</visualize>
+      <!-- <pose>1 1 1 1.570796 1.570796 1.570796</pose> -->
+      <camera>
+        <!-- <pose>1 1 1 1.570796 1.570796 1.570796</pose> -->
+        <!-- <pose>0 0 0 0 0 0</pose> -->
+      </camera>
+    </sensor>
+  </gazebo>
+  
+  <gazebo reference="chassis">
+    <material>Gazebo/Grey</material>
+    <sensor name="chassisUltrasonic" type="sonar">
+      <always_on>true</always_on>
+      <visualize>true</visualize>
+      <pose>-0.125 0.375 -0.085 1.570796 0 0</pose>
+      <sonar>
+        <min>0</min>
+        <max>2</max>
+        <radius>0.1</radius>
+      </sonar>
+    </sensor>
+  </gazebo>
+  <gazebo reference="frontLeftWheel">
+    <material>Gazebo/Green</material>
+  </gazebo>
+  <gazebo reference="frontRightWheel">
+    <material>Gazebo/Green</material>
+  </gazebo>
+  <gazebo reference="backRightWheel">
+    <material>Gazebo/Green</material>
+  </gazebo>
+  <gazebo reference="backLeftWheel">
+    <material>Gazebo/Green</material>
+  </gazebo>
+  <gazebo reference="elevator">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <gazebo reference="wrist">
+    <material>Gazebo/Green</material>
+  </gazebo>
+  <gazebo reference="leftFinger">
+    <mu1>2</mu1>
+    <mu2>2</mu2>
+    <kp>10000.0</kp>
+    <kd>1.0</kd>
+    <material>Gazebo/Green</material>
+    <sensor name="leftFingerContact" type="contact">
+      <always_on>true</always_on>
+      <contact>
+        <collision>leftFinger_collision</collision>
+      </contact>
+    </sensor>
+  </gazebo>
+  <gazebo reference="leftFingerCollision">
+    <soft_cfm>0.2</soft_cfm>
+    <soft_erp>0.8</soft_erp>
+    <max_contacts>1</max_contacts>
+    <max_vel>0.1</max_vel>
+    <min_depth>0.0</min_depth>
+  </gazebo>
+  <gazebo reference="rightFinger">
+    <mu1>2</mu1>
+    <mu2>2</mu2>
+    <kp>10000.0</kp>
+    <kd>1.0</kd>
+    <material>Gazebo/Green</material>
+  </gazebo>
+  <gazebo reference="rightFingerCollision">
+    <soft_cfm>0.2</soft_cfm>
+    <soft_erp>0.8</soft_erp>
+    <max_contacts>1</max_contacts>
+    <max_vel>0.1</max_vel>
+    <min_depth>0.0</min_depth>
+  </gazebo>
+</robot>
